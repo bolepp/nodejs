@@ -1,3 +1,4 @@
+//自定义流
 var stream=require('stream');
 var util=require('util');
 function ReadStream(){
@@ -15,9 +16,9 @@ function WritStream(){
 	this._cached=new Buffer('');
 }
 util.inherits(WritStream,stream.Writable);
-ReadStream.prototype._write=function(chunk,encode,cb){
+WritStream.prototype._write=function(chunk,encode,cb){
   
-    console.log(chunk.toSring());
+    console.log(chunk.toString());
     cb();
 }
 function TransformStream() {
